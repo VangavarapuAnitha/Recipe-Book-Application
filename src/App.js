@@ -29,10 +29,10 @@ function App() {
       <input type='text' className="search_input " placeholder='Search Recipe..' value={query} onChange={e => setQuery(e.target.value)}/>
       <input type='submit' className='search_button' value="Search" />
      </form>
-     <div>
+     <div className='app_recipeList'>
      {recipes.map((recipe) => {
           return <RecipeList key={recipe.id} recipe={recipe}/>;
-})}
+       })}
       
     </div>
     </div>
