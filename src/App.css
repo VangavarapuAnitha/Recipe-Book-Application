@@ -34,9 +34,3 @@
   color: blue;
   cursor: pointer;
 }
-.app_recipeList{
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: 230px 230px;
-  align-items: baseline;
-}

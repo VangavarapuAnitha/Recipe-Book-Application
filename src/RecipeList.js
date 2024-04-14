@@ -1,13 +1,17 @@
 import React from 'react'
 import "./RecipeList.css"
-const RecipeList = ({recipe}) => {
-    const imageUrl=recipe.image;
+import { Link } from 'react-router-dom';
+const RecipeList = ({recipes}) => {
+    // const imageUrl=recipe.image;
   return (
     <div className='recipeList'>
-      <div key={recipe.id}>
-            <img src={imageUrl } className='recipe_image' alt={recipe.title} />
+        {recipes.map(recipe => (
+        <Link to ={`/RecipeDetails/${recipe.id}`}key={recipe.id}>
+        <div className='recipeCard'>
+            <img src={recipe.image } className='recipe_image' alt={recipe.title} />
             <p className='recipe_title'>{recipe.title}</p>
-          </div>
+         </div>
+         </Link>))}
     </div>
   )
 }

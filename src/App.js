@@ -1,8 +1,10 @@
 
 import  Axios  from 'axios';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
 import { useState } from 'react';
 import RecipeList from './RecipeList';
+import RecipeDetails from './RecipeDetails';
 
 function App() {
   const [query,setQuery]=useState("");
@@ -25,18 +27,20 @@ function App() {
     getRecipes();}
   return (
     <div className="app">
-     
      <h1 >Recipe Book Application</h1>
+     <BrowserRouter>
      <form className='searchForm' onSubmit={onSubmit}>
       <input type='text' className="search_input " placeholder='Search Recipe..' value={query} onChange={e => setQuery(e.target.value)}/>
       <input type='submit' className='search_button' value="Search" />
      </form>
      <div className='app_recipeList'>
-     {recipes.map((recipe) => {
-          return <RecipeList key={recipe.id} recipe={recipe}/>;
-       })}
-      
+      <Routes>
+        <Route path='/' element={<RecipeList recipes={recipes}/>}/>
+        <Route path='/RecipeDetails/:id' element={<RecipeDetails/>} />
+        </Routes>
     </div>
+   
+    </BrowserRouter>
     </div>
     
   );
