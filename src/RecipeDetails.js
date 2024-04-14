@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const RecipeDetails = () => {
   let params = useParams();
   const [details, setDetails] = useState({});
-  const API_KEY = "cad6f7f2c98642c0aa22b0a0cd6e4ea2";
+  const API_KEY = "c333874e119646a69707355c11b3936c";
 
   useEffect(() => {
     const fetchDetails = async () => {

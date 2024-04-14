@@ -10,7 +10,7 @@ import RecipeDetails from "./RecipeDetails";
 function App() {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const API_KEY = "cad6f7f2c98642c0aa22b0a0cd6e4ea2";
+  const API_KEY = "c333874e119646a69707355c11b3936c";
 
   async function getRecipes() {
     var url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}`;
@@ -30,7 +30,7 @@ function App() {
     <div className="app">
       <h1>Recipe Book Application</h1>
       <BrowserRouter>
-       
+       {!window.location.pathname.includes("RecipeDetails") && (
         <form className="searchForm" onSubmit={onSubmit}>
           <input
             type="text"
@@ -41,6 +41,7 @@ function App() {
           />
           <input type="submit" className="search_button" value="Search" />
         </form>
+  )}
         <div className="app_recipeList">
           <Routes>
             <Route path="/" element={<RecipeList recipes={recipes} />} />
