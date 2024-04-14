@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+
+import  Axios  from 'axios';
 import './App.css';
 
 function App() {
+  var  url=`https://api.spoonacular.com/recipes/search?apiKey=e8ae35effd8f4098b981c9f5c06dece1&query=chicken`;
+  async function getRecipes(){
+    var result= await Axios.get(url);
+    console.log(result.data);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+     <h1 onClick={getRecipes}>Food</h1>
+      
     </div>
   );
 }
