@@ -7,9 +7,11 @@ import RecipeList from './RecipeList';
 function App() {
   const [query,setQuery]=useState("");
   const [recipes,setRecipes]=useState([]);
+  const API_KEY="e8ae35effd8f4098b981c9f5c06dece1";
 
-  var  url=`https://api.spoonacular.com/recipes/search?q=${query}&apiKey=e8ae35effd8f4098b981c9f5c06dece1&query`;
+  // var  url=`https://api.spoonacular.com/recipes/complexSearch?q=${query}&apiKey=e8ae35effd8f4098b981c9f5c06dece1&query`;
   async function getRecipes(){
+    var  url=`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}`;
     try{
     var result= await Axios.get(url);
     setRecipes(result.data.results);
@@ -24,7 +26,7 @@ function App() {
   return (
     <div className="app">
      
-     <h1 onClick={getRecipes}>Recipe Book Application</h1>
+     <h1 >Recipe Book Application</h1>
      <form className='searchForm' onSubmit={onSubmit}>
       <input type='text' className="search_input " placeholder='Search Recipe..' value={query} onChange={e => setQuery(e.target.value)}/>
       <input type='submit' className='search_button' value="Search" />
