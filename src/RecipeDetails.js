@@ -41,16 +41,17 @@ const RecipeDetails = () => {
         Back to Home
       </Link>
       <div >
+      <button className="search_button" onClick={handleInstruction}>Instructions</button>
+        <button className="search_button" onClick={handleIngredients}>Ingredients</button>
         <h1 className="recipe_title">{details.title}</h1>
         <img src={details.image} alt={details.title} className="recipe_image" />
         </div>
-        <button className="button" onClick={handleInstruction}>Instructions</button>
-        <button className="button" onClick={handleIngredients}>Ingredients</button>
+        
         {showInstructions && (<div><p dangerouslySetInnerHTML={{ __html: details.summary }}></p></div>)}
         {/* <button className="button" onClick={() => setActiveTab(ingredients)}>Ingredients</button> */}
         
-      {/* <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
-        <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p> */}
+      <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
+        {/* <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p> */}
       
       {showIngredients && (<div>
         <ul>
