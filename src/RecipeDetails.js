@@ -2,11 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./RecipeDetails.css";
 
 const RecipeDetails = () => {
   let params = useParams();
   const [details, setDetails] = useState({});
-  const API_KEY = "c333874e119646a69707355c11b3936c";
+  const [showInstructions,setShowInstructions]= useState(false);
+  const [showIngredients,setShowIngredients]= useState(false);
+  const API_KEY = "236ad32b208a45f48724c6069ec39aea";
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -22,30 +25,43 @@ const RecipeDetails = () => {
     };
     fetchDetails();
   }, [params.id]);
+
+  const handleInstruction=() =>{
+    setShowInstructions(true);
+    setShowIngredients(false);
+  }
+  const handleIngredients=() =>{
+    setShowIngredients(true);
+    setShowInstructions(false);
+    
+  }
   return (
     <div>
-      <div>
-        <h1>{details.title}</h1>
-        <div>
-        <ul>
-            <li>
-                <Link to="/">Back to Home</Link>
-            </li>
-            
-        </ul>
+      <Link to="/" className="backToHome">
+        Back to Home
+      </Link>
+      <div >
+        <h1 className="recipe_title">{details.title}</h1>
+        <img src={details.image} alt={details.title} className="recipe_image" />
         </div>
-        <img src={details.image} alt={details.title} />
-        <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
-        <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p>
-      </div>
-      <div>
+        <button className="button" onClick={handleInstruction}>Instructions</button>
+        <button className="button" onClick={handleIngredients}>Ingredients</button>
+        {showInstructions && (<div><p dangerouslySetInnerHTML={{ __html: details.summary }}></p></div>)}
+        {/* <button className="button" onClick={() => setActiveTab(ingredients)}>Ingredients</button> */}
+        
+      {/* <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
+        <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p> */}
+      
+      {showIngredients && (<div>
         <ul>
           {details.extendedIngredients &&
             details.extendedIngredients.map((ingredient) => (
               <li key={ingredient.id}>{ingredient.original}</li>
             ))}
         </ul>
-      </div>
+      </div>)}
+      
+      
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.backToHome{
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: blue;
+   color:white;
+   text-decoration: none;
+   border: 2px solid blue;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+
+}
+.backToHome:hover{
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: white;
+   color:blue;
+   text-decoration: none;
+   border: 2px solid blue;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 16px;
+}

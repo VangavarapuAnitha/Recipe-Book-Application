@@ -1,3 +1,8 @@
+@keyframes colorChange{
+  0%{color: red;}
+  50%{color: blue;}
+  100%{color: orange;}
+}
 .app{
   display: flex;
   flex-direction: column;
@@ -33,4 +38,8 @@
   border-radius: 4px;
   color: blue;
   cursor: pointer;
+}
+.app_title{
+  color: brown;
+  animation: colorChange 3s infinite alternate;
 }

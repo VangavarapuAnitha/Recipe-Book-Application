@@ -10,7 +10,7 @@ import RecipeDetails from "./RecipeDetails";
 function App() {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const API_KEY = "c333874e119646a69707355c11b3936c";
+  const API_KEY = "236ad32b208a45f48724c6069ec39aea";
 
   const fetchDefaultRecipes = async () =>{
     try{
@@ -40,7 +40,7 @@ function App() {
   };
   return (
     <div className="app">
-      <h1>Recipe Book Application</h1>
+      <h1 className="app_title">Recipe Book Application</h1>
       <BrowserRouter>
        {!window.location.pathname.includes("RecipeDetails") && (
         <form className="searchForm" onSubmit={onSubmit}>

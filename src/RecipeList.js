@@ -16,6 +16,7 @@ const RecipeList = ({ recipes }) => {
         >
           <img src={recipe.image} className="recipe_image" alt={recipe.title} />
           <p className="recipe_title">{recipe.title}</p>
+          {/* { recipe.summary && <p className="recipe_summary">{recipe.summary}</p>} */}
         </div>
       ))}
     </div>
