@@ -2,16 +2,20 @@ import React from 'react'
 import "./RecipeList.css"
 import { Link } from 'react-router-dom';
 const RecipeList = ({recipes}) => {
-    // const imageUrl=recipe.image;
+
+  const handleRecipeClick = (id) =>{
+    window.open(`/RecipeDetails/${id}`,'_blank')
+  };
+    
   return (
     <div className='recipeList'>
         {recipes.map(recipe => (
-        <Link to ={`/RecipeDetails/${recipe.id}`}key={recipe.id}>
-        <div className='recipeCard'>
+       
+        <div className='recipeCard' key={recipe.id} onClick={()=>handleRecipeClick(recipe.id)}>
             <img src={recipe.image } className='recipe_image' alt={recipe.title} />
             <p className='recipe_title'>{recipe.title}</p>
          </div>
-         </Link>))}
+         ))}
     </div>
   )
 }
