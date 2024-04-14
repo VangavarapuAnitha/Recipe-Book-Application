@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import RecipeList from "./RecipeList";
 import RecipeDetails from "./RecipeDetails";
@@ -11,6 +11,18 @@ function App() {
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
   const API_KEY = "c333874e119646a69707355c11b3936c";
+
+  const fetchDefaultRecipes = async () =>{
+    try{
+      const result= await Axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=vegetarian`);
+      setRecipes(result.data.results);
+    }catch(error){
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchDefaultRecipes();
+  },[]);
 
   async function getRecipes() {
     var url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}`;
