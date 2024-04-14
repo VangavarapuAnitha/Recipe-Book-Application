@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RecipeDetails = () => {
   let params = useParams();
@@ -25,15 +26,24 @@ const RecipeDetails = () => {
     <div>
       <div>
         <h1>{details.title}</h1>
+        <div>
+        <ul>
+            <li>
+                <Link to="/">Back to Home</Link>
+            </li>
+            
+        </ul>
+        </div>
         <img src={details.image} alt={details.title} />
         <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
         <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p>
       </div>
       <div>
         <ul>
-          { details.extendedIngredients && details.extendedIngredients.map((ingredient) => (
-            <li key={ingredient.id}>{ingredient.original}</li>
-          ))}
+          {details.extendedIngredients &&
+            details.extendedIngredients.map((ingredient) => (
+              <li key={ingredient.id}>{ingredient.original}</li>
+            ))}
         </ul>
       </div>
     </div>
