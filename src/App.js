@@ -9,7 +9,7 @@ import RecipeDetails from './RecipeDetails';
 function App() {
   const [query,setQuery]=useState("");
   const [recipes,setRecipes]=useState([]);
-  const API_KEY="e8ae35effd8f4098b981c9f5c06dece1";
+  const API_KEY="cad6f7f2c98642c0aa22b0a0cd6e4ea2";
 
   // var  url=`https://api.spoonacular.com/recipes/complexSearch?q=${query}&apiKey=e8ae35effd8f4098b981c9f5c06dece1&query`;
   async function getRecipes(){
