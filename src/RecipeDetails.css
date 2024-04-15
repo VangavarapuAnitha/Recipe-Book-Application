@@ -1,38 +1,69 @@
-.backToHome{
-   display: inline-block;
-   padding: 10px 20px;
-   background-color: blue;
-   color:white;
-   text-decoration: none;
-   border: 2px solid blue;
-   border-radius: 4px;
-   cursor: pointer;
-   font-size: 16px;
+.backToHome_container {
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
 
+.backToHome {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  text-decoration: none;
+  border: 2px solid blue;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 }
-.backToHome:hover{
-   display: inline-block;
-   padding: 10px 20px;
-   background-color: white;
-   color:blue;
-   text-decoration: none;
-   border: 2px solid blue;
-   border-radius: 4px;
-   cursor: pointer;
-   font-size: 16px;
+.backToHome:hover {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: white;
+  color: blue;
+  text-decoration: none;
+  border: 2px solid blue;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 }
-.detailsContainer{
-   display: flex;
-   flex-wrap: wrap;
+.detailsContainer {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.summary{
-   flex: 1;
-   padding-right: 20px;
+.summary {
+  flex: 1;
+  padding-right: 20px;
 }
-.imageContainer{
-   flex: 1;
+.imageContainer {
+  flex: 1;
 }
-.recipedetail_image{
-   max-width: 100%;
-   height: auto;
+.recipedetail_image {
+  max-width: 100%;
+  height: auto;
+}
+.recipeDetail_title {
+  color: brown;
+  animation: colorChange 3s infinite alternate;
+}
+
+@media screen and (max-width: 760px) {
+  .detailsContainer {
+    flex-direction: column;
+  }
+  .recipedetail_image,
+  .summary {
+    width: 100%;
+  }
+  .backToHome_container {
+    justify-content: center;
+  }
+  .recipeDetail_title {
+   text-align: center;
+ }
+ .recipe_search_button{
+    padding-top: 10px;
+    text-align: center;
+ }
+  
 }

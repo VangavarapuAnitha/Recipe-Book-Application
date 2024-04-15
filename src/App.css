@@ -12,6 +12,7 @@
 }
 .searchForm{
   margin-top:10px;
+  text-align: center;
 }
 .search_input{
   padding: 5px 10px;
@@ -42,4 +43,29 @@
 .app_title{
   color: brown;
   animation: colorChange 3s infinite alternate;
+}
+@media  screen and (max-width:768px){
+  .app_title{
+    font-size: 24px;
+  }
+  .search_input{
+    width: 50%;
+    
+  }
+  
+  .app_recipeList{
+    justify-content: center;
+    
+  }
+}
+@media  screen and (max-width:480px){
+  .app_title{
+    font-size: 20px;
+  }
+  .search_input, .search_button{
+    font-size: 14px;
+  }
+  .app_recipeList{
+    justify-content: flex-start;
+  }
 }

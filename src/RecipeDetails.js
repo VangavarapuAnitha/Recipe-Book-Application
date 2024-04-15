@@ -9,7 +9,7 @@ const RecipeDetails = () => {
   const [details, setDetails] = useState({});
   const [showInstructions, setShowInstructions] = useState(false);
   const [showIngredients, setShowIngredients] = useState(false);
-  const API_KEY = "236ad32b208a45f48724c6069ec39aea";
+  const API_KEY = "80f473d4318d4e5e813972d04fa9883d";
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -36,10 +36,12 @@ const RecipeDetails = () => {
   };
   return (
     <div>
-      <Link to="/" className="backToHome">
+      <div className="backToHome_container">     <Link to="/" className="backToHome">
         Back to Home
       </Link>
-     
+      </div>
+ 
+
         <div className="detailsContainer">
           <div className="summary">
           <h1 className="recipeDetail_title">{details.title}</h1>
@@ -49,7 +51,7 @@ const RecipeDetails = () => {
           <img src={details.image} alt={details.title} className="recipedetail_image" />
           </div>
         </div>
-        <div>
+        <div className="recipe_search_button">
         <button className="search_button" onClick={handleInstruction}>
           Instructions
         </button>
