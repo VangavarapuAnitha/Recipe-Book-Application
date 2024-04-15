@@ -27,7 +27,7 @@
   font-size: 16px;
 }
 .detailsContainer {
-  padding-top: 10px;
+  padding: 10px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -45,6 +45,23 @@
 .recipeDetail_title {
   color: brown;
   animation: colorChange 3s infinite alternate;
+}
+.ingredientsContainer{
+  margin-top: 20px;
+}
+.ingredientsList{
+  list-style-type:none;
+}
+.ingredientsItem{
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.ingredientsItem::before{
+  content: "\25B6";
+  margin-right: 5px;
+  color: rgb(82, 82, 236);
+  animation: blink 2s infinite;
 }
 
 @media screen and (max-width: 760px) {

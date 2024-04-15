@@ -11,10 +11,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
 .recipeCard{
   width: 250px;
   margin: 20px;
+  text-align: center;
 }
 .recipe_image{
 height: 200px;
@@ -30,6 +32,12 @@ border-radius: 4px;
     animation: blink 2s infinite;
 }
 @media screen and (max-width:768px) {
+  .recipeList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   .recipeCard{
     width: calc(50%-40px);
   }

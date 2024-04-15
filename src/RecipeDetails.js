@@ -9,7 +9,7 @@ const RecipeDetails = () => {
   const [details, setDetails] = useState({});
   const [showInstructions, setShowInstructions] = useState(false);
   const [showIngredients, setShowIngredients] = useState(false);
-  const API_KEY = "80f473d4318d4e5e813972d04fa9883d";
+  const API_KEY = "5203fe61f8b348709c57dd48fc4b0b0c";
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -36,49 +36,46 @@ const RecipeDetails = () => {
   };
   return (
     <div>
-      <div className="backToHome_container">     <Link to="/" className="backToHome">
-        Back to Home
-      </Link>
+      <div className="backToHome_container">
+        <Link to="/" className="backToHome">
+          Back to Home
+        </Link>
       </div>
- 
 
-        <div className="detailsContainer">
-          <div className="summary">
+      <div className="detailsContainer">
+        <div className="summary">
           <h1 className="recipeDetail_title">{details.title}</h1>
           <p dangerouslySetInnerHTML={{ __html: details.summary }}></p>
-          </div>
-          <div className="imageContainer">
-          <img src={details.image} alt={details.title} className="recipedetail_image" />
-          </div>
         </div>
-        <div className="recipe_search_button">
+        <div className="imageContainer">
+          <img
+            src={details.image}
+            alt={details.title}
+            className="recipedetail_image"
+          />
+        </div>
+      </div>
+      <div className="recipe_search_button">
         <button className="search_button" onClick={handleInstruction}>
           Instructions
         </button>
         <button className="search_button" onClick={handleIngredients}>
           Ingredients
         </button>
-        </div>
-        {/* <h1 className="recipe_title">{details.title}</h1> */}
-        {/* <img src={details.image} alt={details.title} className="recipe_image" /> */}
-        {/* <p dangerouslySetInnerHTML={{ __html: details.summary }}></p> */}
-     
+      </div>
 
       {showInstructions && (
         <div>
           <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p>
         </div>
       )}
-      {/* <button className="button" onClick={() => setActiveTab(ingredients)}>Ingredients</button> */}
-
-      {/* <p dangerouslySetInnerHTML={{ __html: details.instructions }}></p> */}
 
       {showIngredients && (
-        <div>
-          <ul>
+        <div className="ingredientsContainer">
+          <ul className="ingredientsList">
             {details.extendedIngredients &&
               details.extendedIngredients.map((ingredient) => (
-                <li key={ingredient.id}>{ingredient.original}</li>
+                <li key={ingredient.id} className="ingredientsItem">{ingredient.original}</li>
               ))}
           </ul>
         </div>
