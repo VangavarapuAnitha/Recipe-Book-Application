@@ -21,3 +21,18 @@
    cursor: pointer;
    font-size: 16px;
 }
+.detailsContainer{
+   display: flex;
+   flex-wrap: wrap;
+}
+.summary{
+   flex: 1;
+   padding-right: 20px;
+}
+.imageContainer{
+   flex: 1;
+}
+.recipedetail_image{
+   max-width: 100%;
+   height: auto;
+}
